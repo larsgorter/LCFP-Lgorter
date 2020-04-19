@@ -1,13 +1,15 @@
 # ex 11.2.6
 
+
 class Rectangle:
 
-    def __init__(self, w, h):
+    def __init__(self, posn, x, y):
         self.width = x
         self.height = y
+        self.corner = posn
 
     def __str__(self):
-        return "({0}, {1})".format(self.width, self.height)
+        return "({0}, {1})".format(self.width, self.height, self.corner)
 
     def area(self):
         return self.width * self.height
@@ -25,5 +27,8 @@ class Point:
         self.x = x
         self.y = y
 
-r = Rectangle(0, 0, 10, 5)
-test(r.area() == 50)
+r = Rectangle(Point(100, 50), 10, 5)
+
+r.flip()
+
+print(r.flip())
