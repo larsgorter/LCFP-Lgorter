@@ -13,4 +13,15 @@ class Point:
     def reflect_x(self):
         return Point(self.x, -self.y)
 
-print(Point(5, 1).reflect_x())
+    def get_slope_from_origin(self, target=0):
+        return (self.y - target.y) / (self.x - target.x)
+
+    def get_line_to(self, point):
+        slope = self.get_slope_from_origin(point)
+        print("y = {0}x + {1}".format(slope, point.y - slope * point.x))
+        return slope, point.y - slope * point.x
+
+
+print(Point(7, 2).reflect_x())
+print(Point(8, 21).get_line_to(Point(9, 22)))
+print(Point(4, 11).get_line_to(Point(6, 15)))
